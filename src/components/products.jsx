@@ -169,7 +169,7 @@ const handleAllProducts = async () => {
         ) : (
           <div className="flex p-2 xl:p-0  flex-shrink-0 productscale flex-wrap w-full sm:gap-5 sm:flex-wrap justify-evenly xl:justify-center 2xl:justify-between ">
             {!loading &&
-              products.slice(0, visibleProducts).map((product, index) => (
+              products?.slice(0, visibleProducts).map((product, index) => (
                 <div key={index} className="mb-32  w-40 xl:w-48 h-96 ">
  
                   <div className="w-full h-56  flex justify-center items-center shadow-xl overflow-hidden rounded-lg mb-3  border relative">
@@ -179,7 +179,7 @@ const handleAllProducts = async () => {
                     </div>
 
 
-                    {!isProductInWishlist(product._id) ? (
+                    {!isProductInWishlist(product?._id) ? (
                     <div className={`m-2 absolute top-1 right-2 cursor-pointer border-2 rounded-full w-6 h-6  flex justify-center items-center  border-black ${wishLoading[product._id] ? 'animate-spin' : ''} `}>
                         <CiHeart
                         size={22}
@@ -214,8 +214,8 @@ const handleAllProducts = async () => {
                     </div>
                     <h4 className="text-[12px]">{product?.category}</h4>
                     <button      
-      onClick={() => handleClick(product._id)}
-      disabled={detailLoading[product._id]}
+      onClick={() => handleClick(product?._id)}
+      disabled={detailLoading[product?._id]}
       
       className="text-[12px] w-16 h-5  border px-1 flex justify-center items-center rounded-md bg-white border-[#3f0113]">
     
@@ -254,7 +254,7 @@ const handleAllProducts = async () => {
                       className={`border text-[12px] w-24  p-1 h-7 flex justify-center items-center   rounded-md  border-[#C683EF]   ${isProductInCart(product?._id)? "bg-[#C683EF] text-white":"hover:bg-pink-900 text-black hover:text-white"}`}
                       onClick={() => handleAddToCart(product)}
                     >
-                    {cartLoading[product._id]==true? <FaSpinner className={` animate-spin  ${isProductInCart(product?._id)?"text-white hover:text-white":"hover:text-white"}`}/>:
+                    {cartLoading[product?._id]==true? <FaSpinner className={` animate-spin  ${isProductInCart(product?._id)?"text-white hover:text-white":"hover:text-white"}`}/>:
              <div>
                {/* <LiaShoppingBagSolid size={20}  /> */}
                <p>Add to cart</p>
@@ -268,7 +268,7 @@ const handleAllProducts = async () => {
         )}
 
         <div className="m-auto w-44">
-          {!loading && visibleProducts < products.length && (
+          {!loading && visibleProducts < products?.length && (
             <button
               onClick={handleLoadMore}
               className="w-52 border p-2 rounded-xl appColor text-white font-bold"
