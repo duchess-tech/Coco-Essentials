@@ -193,7 +193,7 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
                 </Link>
                 <div
                   style={{ fontSize: "10px" }}
-                  className="w-4 text-sm  bg-white text-white h-4 rounded-full border absolute flex justify-center items-center bottom-[-10px] left-2    md:bottom-[-10px]"
+                  className="w-4 text-sm  bg-white text-black h-4 rounded-full border absolute flex justify-center items-center bottom-[-10px] left-2    md:bottom-[-10px]"
                 >
                   <h6>{wishlistLength||0}</h6>
                 </div>
@@ -207,7 +207,7 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
               </Link>
               <div
                 style={{ fontSize: "10px" }}
-                className="w-4 text-sm  bg-white text-white h-4 rounded-full border absolute flex justify-center items-center bottom-[-10px] left-2    md:bottom-[-10px]"
+                className="w-4 text-sm  bg-white text-black h-4 rounded-full border absolute flex justify-center items-center bottom-[-10px] left-2    md:bottom-[-10px]"
               >
                 {/* <h6>{cartLength}</h6> */}
                 <h6>{uniqueCartLength}</h6>

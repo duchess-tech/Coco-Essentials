@@ -30,6 +30,7 @@ const Banner2 = () => {
     <div className="w-full appColor p-4">
          <div className="w-full flex justify-center">
       <video width="70%"
+      className="xl:w-3/4 w-full"
             ref={videoRef} autoPlay loop muted
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave} >
