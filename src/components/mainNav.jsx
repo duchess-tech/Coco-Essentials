@@ -177,7 +177,7 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
           onClick={toggleMenu}
         />
         <Link to={"/"}>
-          <div className="xl:ml-4 w-52      md:w-40"  >
+          <div className="xl:ml-4 w-52 md:w-40"  >
             <img src={logoSrc} alt="Coco Logo" />
           </div>
         </Link>

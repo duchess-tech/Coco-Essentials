@@ -74,7 +74,9 @@ const handleAllProducts = async () => {
   const handleClick = async(productId) => {
     setDetailLoading((prevLoading) => ({ ...prevLoading, [productId]: true }));
     try {
-      const response = await httpAuth.get(`/api/products/getProduct/${productId}`);
+      const response = await httpAuth.get(`/api/products/getProduct/${productId}`, {
+        withCredentials: true
+      });
       const data = await response.data;
       
       if (data.product) {

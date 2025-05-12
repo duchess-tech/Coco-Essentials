@@ -32,7 +32,9 @@ const [loading,setLoading]=useState(true)
     const fetchNewArrivals = async () => {
       try {
         setLoading(true)
-        const response = await httpAuth.get('/api/products/new-arrivals');
+        const response = await httpAuth.get('/api/products/new-arrivals', {
+          withCredentials: true
+        });
         const data = await response.data;
         setProducts(data);
       } catch (error) {
@@ -137,10 +139,10 @@ New Arrivals
       >
         
         
-      {!loading &&products.map((item,index) => (
+      {!loading && products?.map((item,index) => (
             <div key={index} className="mb-10 newAriival ">
               <div className="w-52 h-52 shadow-lg border-2 rounded-lg mb-3 relative">
-                <img src={item.image} className="w-full h-full" alt="Product Image" />
+                <img src={item?.image} className="w-full h-full" alt="Product Image" />
               
                 {!isProductInWishlist(item?._id)? ( 
                   <CiHeart

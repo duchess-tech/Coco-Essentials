@@ -26,7 +26,9 @@ const Cartprovider = ({ children }) => {
     try {
       const token = localStorage.getItem("token")
       if (token) {
-        const response = await http.get("/user/me")
+        const response = await http.get("/user/me", {
+          withCredentials: true
+        })
         setUser(response.data.data)
         setisadmin(response.data.data.isAdmin)
         const history = localStorage.getItem("history")

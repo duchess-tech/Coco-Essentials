@@ -2,9 +2,8 @@ import axios from "axios";
 
 
 const http = axios.create({
-  baseURL: `https://2961-129-205-124-203.ngrok-free.app`,
-headers: { "Content-Type": "multipart/form-data" }
- 
+  // baseURL: `http://localhost:4000`, 
+  baseURL: `https://coco-essentials-api.onrender.com`, 
 });
 
 
@@ -33,7 +32,7 @@ const refreshToken = async () => {
       throw new Error("No refresh token available");
     }
 
-    const response = await axios.post('http://localhost:4000/user/refresh-token', { refreshToken });
+    const response = await axios.post('https://coco-essentials-api.onrender.com/user/refresh-token', { refreshToken });
     if (response.status === 200) {
       const { accessToken, refreshToken: newRefreshToken } = response.data;
       localStorage.setItem("token", accessToken);
@@ -49,6 +48,7 @@ const refreshToken = async () => {
 http.interceptors.request.use(
   async (config) => {
     const token = localStorage.getItem("token");
+    
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
@@ -91,90 +91,12 @@ http.interceptors.response.use(
 
     return Promise.reject(error);
   }
-);
+)
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const refreshToken = async () => {
-//   try {
-//     const refreshToken = localStorage.getItem("refreshToken");
-//     const response = await axios.post('https://radiant-whispersstore.onrender.com/user/refresh-token', { refreshToken });
-//     if (response.status === 200) {
-//       const { accessToken, refreshToken: newRefreshToken } = response.data;
-//       localStorage.setItem("token", accessToken);
-//       localStorage.setItem("refreshToken", newRefreshToken);
-    
-//    }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-
-
-
-// http.interceptors.request.use(
-//    async (config) => {
-
-// await refreshToken()
-//       const token = await localStorage.getItem("token")
-//       if (token) {
-//         config.headers["Authorization"] = `Bearer ${token}`;
-//         console.log(token)
-//       }
-//       return config;
-//     },
-//     (error) => Promise.reject(error),
-//   )
-// // function jwtDecode(t) {
-// //   let token = {};
-// //   token.raw = t;
-// //   token.header = JSON.parse(window.atob(t.split('.')[0]));
-// //   token.payload = JSON.parse(window.atob(t.split('.')[1]));
-// //   return (token)
-// // }
-// // http.interceptors.request.use(
-// //   async (config) => {
-// //     let token = localStorage.getItem("token");
-// //     if (token) {
-// //       const decoded = jwtDecode(token);
-// //       if (decoded.exp * 1000 < Date.now()) {
-// //         const refreshToken = localStorage.getItem("refreshToken");
-// //         const response = await axios.post('https://radiant-whispersstore.onrender.com/user/refresh-token', { refreshToken });
-// //         if (response.status === 200) {
-// //           const { accessToken, refreshToken: newRefreshToken } = response.data;
-// //           localStorage.setItem("token", accessToken);
-// //           localStorage.setItem("refreshToken", newRefreshToken);
-// //           token = accessToken;
-// //           console.log(token)
-// //         }
-// //       }
-// //       config.headers["Authorization"] = `Bearer ${token}`;
-// //     }
-// //     return config;
-// //   },
-// //   (error) => Promise.reject(error),
-// // );
 
   export default http;
