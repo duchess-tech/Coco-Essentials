@@ -137,7 +137,7 @@ New Arrivals
       >
         
         
-      {!loading &&products?.map((item,index) => (
+      {!loading &&products.map((item,index) => (
             <div key={index} className="mb-10 newAriival ">
               <div className="w-52 h-52 shadow-lg border-2 rounded-lg mb-3 relative">
                 <img src={item.image} className="w-full h-full" alt="Product Image" />

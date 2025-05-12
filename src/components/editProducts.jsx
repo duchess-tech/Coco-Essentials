@@ -33,7 +33,7 @@ const EditProduct = ({ setOpenEdit }) => {
 
 
       const response = await axios.post(
-        "https://radiant-whispersstore.onrender.com/api/products/addProduct",
+        "https://2961-129-205-124-203.ngrok-free.app/api/products/addProduct",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -93,7 +93,7 @@ const handleEdit=async(e,id)=>{
       formData.append('category',categoryRef.current.value)
       formData.append('noofitem',noOfAvailableItem.current.value)
       const response = await axios.post(
-            `https://16ea-129-205-124-203.ngrok-free.app/api/products/edit/${id}`, 
+            `https://2961-129-205-124-203.ngrok-free.app/api/products/edit/${id}`, 
           formData,
           {
               headers: { "Content-Type": "multipart/form-data" },

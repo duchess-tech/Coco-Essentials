@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const http = axios.create({
-  baseURL: `https://16ea-129-205-124-203.ngrok-free.app`,
+  baseURL: `https://2961-129-205-124-203.ngrok-free.app`,
 headers: { "Content-Type": "multipart/form-data" }
  
 });
