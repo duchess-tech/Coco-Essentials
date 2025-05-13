@@ -284,7 +284,7 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
             <HoverInfo
               name="About us"
               right="0px"
-              info="  At Radiant Whispers, we believe that every individual deserves to feel confident and comfortable in their own skin. 
+              info="  At CocoEssentials, we believe that every individual deserves to feel confident and comfortable in their own skin. 
 
 That's why we're dedicated to providing high-quality, natural body creams that moisturize, soothe, and protect your skin."
             />

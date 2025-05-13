@@ -54,21 +54,21 @@ const SideMenu = () => {
   return (
     <div className="xl:hidden  lg:hidden md:hidden block sm:block">
       <div
-        className={`menu fixed z-[10000] top-0 bg-white p-2 w-3/6 h-full overflow-hidden left-0 transition-all duration-300
+        className={`menu fixed z-[10000] top-0 appColor  p-2 w-3/6 h-full overflow-hidden left-0 transition-all duration-300
       ${isOpen ? "translate-x-0" : "-translate-x-full"}
   `}
       >
         <div className="mt-3 flex justify-between items-center ">
           <div className="w-[80px] h-[30px] flex justify-center items-center  md:w-[80px]">
-            <img src="/RadiantwhispersstoreLogo.png" alt="" />
+            <img src="cocoLogo1.png" alt="" />
           </div>
           <div></div>
 
-          <p className="cursor-pointer">
+          <p className="cursor-pointer text-white">
             <LiaTimesSolid onClick={Back} />
           </p>
         </div>
-        <div className="mt-10 text-[#545353] relative">
+        <div className="mt-10 text-white relative">
           
         <ul>
             <li className={`flex items-center gap-1 ${constactIsVisible ? 'mb-0' : 'mb-4'}  mt-32`} onClick={handleToggleContact}>
@@ -82,7 +82,7 @@ const SideMenu = () => {
             </li>
              </ul>
             <div 
-        className={`mb-7 fixed  bg-white p-4 shadow-lg transform transition-transform duration-300 ${constactIsVisible ? 'block' : 'hidden'}`}
+        className={`mb-7 fixed  bg-white text-black p-4 shadow-lg transform transition-transform duration-300 ${constactIsVisible ? 'block' : 'hidden'}`}
       >
          
          <ul className="text-[10px]">
@@ -121,7 +121,7 @@ const SideMenu = () => {
 
 
           <div 
-        className={`mb-7 fixed  w-3/4 bg-white p-2 shadow-lg transform transition-transform duration-300 ${aboutIsVisible ? 'block' : 'hidden'}`}
+        className={`mb-7 fixed  w-3/4 bg-white text-black p-2 shadow-lg transform transition-transform duration-300 ${aboutIsVisible ? 'block' : 'hidden'}`}
       >
         <p className="text-[10px]">At Radiant Whispers, we believe that every individual deserves to feel confident and comfortable in their own skin. 
 
