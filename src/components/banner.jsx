@@ -15,8 +15,8 @@ const Banner = () => {
  
 <div className="xl:mt-20 mt-44 bg-[#e4e5e0] sm:p-12 md:mt-24 bg-cover bg-center bg-no-repeat  md:bg-none bg-[url('cocoModel4.png')]"
 >
-  <div className="md:h-[520px] w-full xl:flex lg:flex md:flex sm:flex flex sm:justify-center justify-center  ">
-    <div className="xl:w-3/5 xl:h-full xl:pl-24 md:w-2/3 md:pl-12 w-full  sm:h-full h-1/5 mt-56 appColor">
+  <div className="md:h-[420px] w-full xl:flex lg:flex md:flex sm:flex flex sm:justify-center justify-center  ">
+    <div className="md:w-3/5 xl:h-full w-full  sm:h-full h-1/5 mt-56 sm:mt-0 border-[#36053c] border-[12px] border-r-0">
     <video 
          autoPlay loop muted playsInline
          className="w-full  h-full "
@@ -26,7 +26,7 @@ const Banner = () => {
       </video>
     </div>
 
-<div className=" md:w-2/5 xl:flex justify-center p-2 sm:p-0 hidden md:block ">
+<div className=" md:w-2/5 xl:flex justify-center p-2 sm:p-0  hidden md:block border-t-[13px] border-b-[13px] border-r-[12px] border-[#36053c] ">
 <img
         src="cocoModel4.png"
         alt="CocoBanner"
