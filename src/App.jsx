@@ -45,7 +45,7 @@ function Home() {
       </div>
        </Defaultlayout >
        <div className=""  >
-       <a href="https://wa.link/2us3c8">
+       <a href="https://wa.link/2us">
  <div className="appColor w-16 flex justify-center z-40 items-center h-16 rounded-full right-10 border-2 fixed bottom-10">
    <IoLogoWhatsapp
    size={40}

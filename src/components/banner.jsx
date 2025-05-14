@@ -20,7 +20,7 @@ const Banner = () => {
       <img src="https://res.cloudinary.com/dz6yrbkai/image/upload/v1747173805/cocoEssentialsImages/cocogif.gif" alt="" />
     </div>
 
-<div className=" md:w-1/2 xl:w-3/5 xl:flex justify-center bg-[#e4e5e0]  sm:p-0  hidden md:block border-t-[13px] border-b-[13px] border-r-[12px] border-[#36053c] ">
+<div className=" md:w-1/2 lg:w-1/2 xl:w-3/5 xl:flex justify-center bg-[#e4e5e0]  sm:p-0  hidden md:block border-t-[13px] border-b-[13px] border-r-[12px] border-[#36053c] ">
 <img
         src="cocoModel1.png"
         alt="CocoBanner"
