@@ -233,20 +233,21 @@ const handleAllProducts = async () => {
                   <div className="flex justify-between gap-1 items-end ">
                     <div className="flex justify-between border-black mt-3 border rounded-lg">
                       <div className="flex ">
+                      <button
+                        onClick={()=>handleDecrease(product?._id)}
+                          className="w-7 h-7  bg-white border   text-sm flex  text-black  justify-center items-center rounded-md"
+                        >
+                          -
+                        </button>
+                      
+                        <h4 className="w-5 h-7 border-black border text-sm flex justify-center items-center  ">
+                        {quantity[product?._id] || 1}
+                        </h4>
                         <button
                          onClick={()=>handleIncrease(product?._id)}
                          className="w-7 h-7  text-sm bg-white text-black flex justify-center items-center rounded-md"
                         >
                           +
-                        </button>
-                        <h4 className="w-5 h-7 border-black border text-sm flex justify-center items-center  ">
-                        {quantity[product?._id] || 1}
-                        </h4>
-                        <button
-                        onClick={()=>handleDecrease(product?._id)}
-                          className="w-7 h-7  bg-white border   text-sm flex  text-black  justify-center items-center rounded-md"
-                        >
-                          -
                         </button>
                       </div>
                     </div>

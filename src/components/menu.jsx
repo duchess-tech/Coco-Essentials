@@ -123,7 +123,7 @@ const SideMenu = () => {
           <div 
         className={`mb-7 fixed  w-3/4 bg-white text-black p-2 shadow-lg transform transition-transform duration-300 ${aboutIsVisible ? 'block' : 'hidden'}`}
       >
-        <p className="text-[10px]">At Radiant Whispers, we believe that every individual deserves to feel confident and comfortable in their own skin. 
+        <p className="text-[10px]">At CocoEssentials, we believe that every individual deserves to feel confident and comfortable in their own skin. 
 
 That&apos;s why we&apos;re dedicated to providing high-quality, natural body creams that moisturize, soothe, and protect your skin.</p>
       </div>
