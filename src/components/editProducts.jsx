@@ -93,7 +93,7 @@ const handleEdit=async(e,id)=>{
       formData.append('category',categoryRef.current.value)
       formData.append('noofitem',noOfAvailableItem.current.value)
       const response = await axios.post(
-            `https://2961-129-205-124-203.ngrok-free.app/api/products/edit/${id}`, 
+            `${import.meta.env.VITE_API_URL}/api/products/edit/${id}`, 
           formData,
           {
               headers: { "Content-Type": "multipart/form-data" },

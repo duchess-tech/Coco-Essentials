@@ -43,11 +43,11 @@ useEffect(() => {
   }, [user,sessionId, dispatch])
 
 
-  const isProductInCart = (productId) => {
-    const wish= cartItems.some((item) => item.productId._id === productId)
-   return wish
-  }
-
+ 
+  const isProductInCart = (product) => {
+    if (!product || !product._id) return false;
+    return cartItems?.some(item => item?._id && item?._id === product?._id);
+  };
 
   const handleRemoveFromWishlist = async (itemId) => {
     setLoadRemoveWishlist(prevState => ({
@@ -65,13 +65,10 @@ useEffect(() => {
     }
   }
   
-
   const handleAddToCart = (productId) => {
     dispatch(addItemToCart({ userId:user?._id,sessionId,productId,quantity:1 }))
     
   }
-
- 
 
   const HandleEmptyAllwishlist = async () => {
     setLoadingEmptyWishlist(true) 
@@ -108,8 +105,8 @@ useEffect(() => {
 <div>
 <div className='flex flex-wrap justify-center gap-10 xl:w-3/4 w-full md:px-12 sm:p-4 m-auto mb-9 pt-2'>
 
-{wishlist?.map((item) => (
-  <div key={item.productId?._id} className='  mt-20 xl:w-60  max-w-60 p-3 h-84   hover:border-white  border-2 rounded-lg relative group bg-whit shadow-lg '>
+{ wishlist?.length > 0 && wishlist?.map((item) => (
+  <div key={item?.productId._id} className='  mt-20 xl:w-60  max-w-60 p-3 h-84   hover:border-white  border-2 rounded-lg relative group bg-whit shadow-lg '>
     <span className='text-sm '>{Capitalize(Truncate(item.productId?.name,30))}</span>
     <div className='xl:w-full  h-32 flex justify-center   mb-4 mt-6 overflow-hidden'>
     <img src={item?.productId?.image} alt="" className='w-32 h-full' />
@@ -117,7 +114,6 @@ useEffect(() => {
    
    <div className='flex justify-between items-center'>
    <button   id={item.productId?._id} className=' text-[13px] text-black ' onClick={()=>handleAddToCart(item.productId._id)}>
-   {/* <LiaShoppingBagSolid className='text-[#891984]' size={20}/> */}
    {isProductInCart(item.productId?._id) ?<RiShoppingBagFill size={24}className="text-[#891980]" />: <LiaShoppingBagSolid size={24} className="text-[#891980]" />}
 
    </button>

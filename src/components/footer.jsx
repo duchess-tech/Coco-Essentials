@@ -16,8 +16,8 @@ const Footer = ({logoSrc}) => {
       });
     };
   return (
-      <footer className="static bottom-0 " >
-    <div className="flex flex-wrap-reverse md:p-5 md:flex-nowrap xl:flex-nowrap m-auto pb-10 mt-5 pl-4 xl:pl-32 xl:pr-32   bg-[#f5f5f5]  pt-10 xl:gap-28 gap-5  xl:justify-center"  >
+      <footer className="static bottom-0  " >
+    <div className="flex flex-wrap-reverse md:p-5 md:flex-nowrap xl:flex-nowrap m-auto pb-10 mt-5 pl-4 xl:pl-32 xl:pr-32   text-[#f5f5f5] appColor   pt-10 xl:gap-28 gap-5  xl:justify-center"  >
       
  <div className=" w-3/5">
        
@@ -26,23 +26,23 @@ const Footer = ({logoSrc}) => {
       <li><a href="#" >Enquiry @CocoEssentials.com</a></li>
       <li>(+234)9130533225 </li>
       <li className=" mt-2 w-[120px] md:block hidden xl:block" onClick={scrollToTop}>
-              <img src={logoSrc}  alt="Coco Essentials Logo" className="border-2 rounded-lg appColor" />
+              <img src={logoSrc}  alt="Coco Essentials Logo"  />
             </li> 
     </ul>
     <div  className="flex lg:hidden  xl:hidden gap-5 mt-10 md:hidden ">
-        <div className="socials hover:bg-[#891980] hover:text-white">
+        <div className="flex justify-center items-center border-2 rounded-full p-1">
           <FacebookShareButton url=''>
           <TiSocialFacebook />
           </FacebookShareButton>
          </div>
-        <div className="socials  hover:bg-[#891980] hover:text-white">
+        <div className="flex justify-center items-center border-2 rounded-full p-1">
            <FaInstagram /></div>
-        <div className="socials  hover:bg-[#891980] hover:text-white">
+        <div className="flex justify-center items-center border-2 rounded-full p-1">
           <a href="https://wa.link/2us3c8" >
           <IoLogoWhatsapp  />
           </a>
           </div>
-        <div className="socials  hover:bg-[#891980] hover:text-white"><FaTwitter /></div>
+        <div className="flex justify-center items-center border-2 rounded-full p-1"><FaTwitter /></div>
       </div>
     
  </div>
@@ -69,19 +69,19 @@ const Footer = ({logoSrc}) => {
 That&apos;s why we&apos;re dedicated to providing high-quality, natural body creams that moisturize, soothe, and protect your skin.
                 </li>
       <li  className="hidden lg:flex gap-5 mt-10  xl:flex md:flex">
-        <div className="socials hover:bg-[#891980] hover:text-white">   
+        <div className="flex justify-center items-center border-2 rounded-full p-1  ">   
          <FacebookShareButton url="">
           <TiSocialFacebook />
           </FacebookShareButton>
           </div>
-        <div className="socials  hover:bg-[#891980] hover:text-white"> <FaInstagram /></div>
-        <div className="socials  hover:bg-[#891980] hover:text-white">
+        <div className=" border-2 p-1 flex justify-center items-center rounded-full "> <FaInstagram /></div>
+        <div className=" border-2 p-1 flex justify-center items-center rounded-full  ">
          <a href="https://wa.link/2us3c8">
          <IoLogoWhatsapp  />
          </a>
        
 </div>
-        <div className="socials  hover:bg-[#891980] hover:text-white"><FaTwitter /></div>
+        <div className="flex justify-center items-center  border-2 p-1 rounded-full  "><FaTwitter /></div>
       </li>
     </ul></div>
     

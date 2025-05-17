@@ -1,5 +1,5 @@
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import httpAuth from "../utils/https";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,7 +24,30 @@ function AdminProducts() {
   const[ deleteName, setDeleteName]=useState({name:"",id:""}) 
   const dispatch = useDispatch();
 
- 
+  const loadMoreRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const target = entries[0];
+        if (target.isIntersecting && !loading && visibleProducts < products.length) {
+          handleLoadMore();
+        }
+      },
+      { threshold: 1 }
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
+    };
+  }, [loading, visibleProducts, products.length]);
+
 
   const handleAllProducts = async () => {
     try {
@@ -82,7 +105,7 @@ const closeDeleteModal = () => {
     <AdminDefaultlayout>
     {openEdit &&  <EditProduct setOpenEdit={setOpenEdit} />}
      {openDelete  &&<DeleteProduct deleteName={deleteName} closeDeleteModal={closeDeleteModal}   setOpenDelete={  setOpenDelete}/>}
-    <main className="mb-10 xl:mt-24 lg:mt-44 md:mt-32 sm:mt-84 mt-40 appColor text-white"
+    <main className="mb-10 xl:mt-24 lg:mt-44 md:mt-32 sm:mt-84 mt-40 "
     >
       {loading && <LoadingSpinner />}
       <div className="xl:w-4/5 w-full   mx-auto  lg:p-4 md:p-5">
@@ -138,7 +161,14 @@ const closeDeleteModal = () => {
             </Typography>
           </div>
         )}
-        <div className="m-auto w-44">
+
+        
+      {/* Load more trigger div */}
+      <div ref={loadMoreRef} className="h-10" />
+
+{/* Optional loading indicator */}
+{loading && <p className="text-center text-gray-500">Loading...</p>}
+        {/* <div className="m-auto w-44">
           {!loading && visibleProducts < products.length && (
             <button
               onClick={handleLoadMore}
@@ -147,7 +177,7 @@ const closeDeleteModal = () => {
               {loading ? "Loading..." : "Load More"}
             </button>
           )}
-        </div>
+        </div> */}
       </div>
 
       <ToastContainer

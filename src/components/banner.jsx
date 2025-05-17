@@ -13,10 +13,10 @@ const Banner = () => {
   // bg-[#e4e5e0]
   return (
  
-<div className="mt-44 md:mt-32 md:mb-12  bg-[#e4ee0] sm:p-1  "
+<div className="mt-44 md:mt-32 md:mb-12 xl:mb-3 xl:mt-24  bg-[#e4ee0] sm:p-1  "
 >
-  <div className="sm:h-[700px] h-[500px] md:h-[400px] lg:h-[550px]  w-full flex xl:justify-center justify-center bg-cover bg-center  md:bg-none bg-[url('https://res.cloudinary.com/dz6yrbkai/image/upload/v1747151905/cocoEssentialsImages/cocoModel.png')] ">
-    <div className=" md:h-full w-full flex justify-center bg-[#e4e5e0] h-32 mt-56 md:mt-0   md:border-[#36053c] md:border-[12px] md:border-r-0">
+  <div className="sm:h-[700px] h-[500px] md:h-[400px] lg:h-[500px] xl:h-[460px]  w-full flex xl:justify-center justify-center bg-cover bg-center  md:bg-none bg-[url('https://res.cloudinary.com/dz6yrbkai/image/upload/v1747151905/cocoEssentialsImages/cocoModel.png')] ">
+    <div className=" md:h-full w-full flex justify-center bg-[#e4e5e0] h-32 mt-56 md:mt-0 sm:mt-80   md:border-[#36053c] md:border-[12px] md:border-r-0">
       <img src="https://res.cloudinary.com/dz6yrbkai/image/upload/v1747173805/cocoEssentialsImages/cocogif.gif" alt="" />
     </div>
 

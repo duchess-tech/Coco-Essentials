@@ -183,12 +183,12 @@ const [loadIncreaseQuantity, setLoadIncreaseQuantity] = useState({});
                 <div className="flex justify-between mt-3">
                   <div className="flex ">
                     <button
-                      disabled={loadIncreaseQuantity[product.productId._id]}
+                      disabled={loadIncreaseQuantity[product?.productId._id]}
                       className="w-9 h-9 border text-sm bg-white text-black flex justify-center items-center rounded-md"
                       onClick={() => handleIncreaseQuantity(product?.productId?._id,1)}
                     >
                      
-                      {loadIncreaseQuantity[product.productId._id] ? (
+                      {loadIncreaseQuantity[product?.productId._id] ? (
     <FontAwesomeIcon className="animate-spin" icon={faSpinner} />
   ) : (
     <>
@@ -203,7 +203,7 @@ const [loadIncreaseQuantity, setLoadIncreaseQuantity] = useState({});
                     <button
                     
                       className="w-9  bg-white border  h-9 text-sm flex  text-black  justify-center items-center rounded-md"
-                      onClick={() => handleDecreaseQuantity(product.productId._id,1)}
+                      onClick={() => handleDecreaseQuantity(product?.productId._id,1)}
                       disabled={loadDecreaseQuantity[product.productId._id] || items.find(item => item?.productId?._id === product?.productId?._id)?.quantity <= 1}
                     >
                       
@@ -218,9 +218,9 @@ const [loadIncreaseQuantity, setLoadIncreaseQuantity] = useState({});
                   <button
   onClick={() => handleRemoveFromCart(product?.productId?._id)}
   className="del-btn text-sm"
-  disabled={loadRemoveCart[product.productId._id]} // Optionally disable the button while loading
+  disabled={loadRemoveCart[product?.productId._id]} // Optionally disable the button while loading
 >
-  {loadRemoveCart[product.productId._id] ? (
+  {loadRemoveCart[product?.productId._id] ? (
     <FontAwesomeIcon className="animate-spin" icon={faSpinner} />
   ) : (
     <>

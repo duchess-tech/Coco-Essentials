@@ -3,9 +3,9 @@ import axios from "axios";
 
 const http = axios.create({
   // baseURL: `http://localhost:4000`, 
-  baseURL: `https://coco-essentials-api.onrender.com`, 
+  baseURL: import.meta.env.VITE_API_URL, 
+  withCredentials: true
 });
-
 
 
 
@@ -32,7 +32,7 @@ const refreshToken = async () => {
       throw new Error("No refresh token available");
     }
 
-    const response = await axios.post('https://coco-essentials-api.onrender.com/user/refresh-token', { refreshToken });
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/refresh-token`, { refreshToken });
     if (response.status === 200) {
       const { accessToken, refreshToken: newRefreshToken } = response.data;
       localStorage.setItem("token", accessToken);

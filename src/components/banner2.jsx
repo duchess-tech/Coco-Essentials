@@ -18,8 +18,8 @@ const Banner2 = () => {
 
 
   return (
-    <div className="w-full appColor p-4">
-         <div className="w-full flex justify-center">
+    <div className="w-full appColor p-4 flex justify-center">
+         <div className=" md:w-3/5 ">
           <img src="https://res.cloudinary.com/dz6yrbkai/image/upload/v1747174433/cocoEssentialsImages/cocogif2.gif" alt="" />
       {/* <video width="70%"
       className="xl:w-3/4 w-full"
