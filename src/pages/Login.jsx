@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Cartcontext from "../cartcontext";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import DialogModel from "../components/dialog";
 
 function Login() {
   const emailRef = useRef(null);
@@ -15,7 +16,7 @@ function Login() {
   const [successMessage, setSuccessMessage] = useState('');
   const navigate=useNavigate()
   const { setOpenRegister, setLogin, setisadmin,loadUser,setOpenLogin } = useContext(Cartcontext);
-
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const handleOpenRegister = () => {
     setOpenRegister(true);
     setOpenLogin(false);
@@ -43,9 +44,11 @@ function Login() {
         localStorage.setItem("Login", res.data?.isLoggedIn);
         localStorage.setItem("token", res.data?.accessToken);
         localStorage.setItem("refreshToken", res.data?.refreshToken);
-        setTimeout(() => navigate('/myaccount'), 2000)
+        // setTimeout(() => navigate('/myaccount'), 2000)
         setOpenLogin(false);
-
+        navigate("/home", {
+          state: { showSuccessDialog: true }, // 👈 pass state
+        })
     
       } else {
         if (res.data?.error_type === 0 && res.data?.errors?.length > 0) {
@@ -136,6 +139,16 @@ function Login() {
       
         </form>
       </div>
+      <DialogModel
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        title="Login Successful"
+        message="Welcome! You are now logged in."
+      
+      />
+
+
+
       <ToastContainer
           position="bottom-right"
           autoClose={5000}

@@ -52,7 +52,8 @@ const Cartcontext = createContext({
     loadUser:()=>{},
     isSideOpen:Boolean,
     wishlistLength:Number,
-    setWishlistLength:()=>{}
+    setWishlistLength:()=>{},
+    Handlelogout:()=>{}
 })
 
 export default Cartcontext

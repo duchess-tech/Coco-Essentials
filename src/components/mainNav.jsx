@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserCart, selectUniqueCartLength } from "../stores/features/cart/cartSlice";
 import { fetchWishlists } from "../stores/features/whishlist/wishlistSlice";
 import SearchBox from "./SearchBox";
+import DialogModel from "./dialog";
 
 const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
   const {
@@ -33,7 +34,6 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
     isadmin,
     setisadmin,
     setLogin,
-    // cartLength,
     setCartLength,
     wishlistLength,
     setWishlistLength
@@ -48,9 +48,10 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
   const { user, sessionId } = useContext(Cartcontext);
-
-  // console.log("wishlists:",wishlists)
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [Modalloading, setModalLoading] = useState(false);
   const uniqueCartLength = useSelector(selectUniqueCartLength)
+  
   useEffect(() => {
     try {
       if (user?._id || sessionId) {
@@ -146,6 +147,7 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
     setOpenContact(false);
   };
   const handleSetLogOut = () => {
+    setModalLoading(true)
     localStorage.removeItem("Login");
     localStorage.removeItem("Admin");
     localStorage.removeItem("token");
@@ -153,7 +155,15 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
     setisadmin(false);
     setLogin(false);
     location.reload("/");
+    setTimeout(() => {
+      setModalLoading(false);
+    }, 2000);
   };
+
+  const handleLogoutModal=()=>{
+    setOpenNavMenu(false)
+    setIsDialogOpen(true);
+  }
 
   // useEffect(() => {
   //   document.addEventListener('click', handleClickOutside)
@@ -229,9 +239,9 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
               onClick={toggleSidebar}
             />
           </div>
-          <div className="">
-            <div className=" hidden xl:block md:block lg:block  ">
-              <div className=" border  md:items-center md:mr-10 md:mt-0 xl:mr-20 flex  w-[500px] md:w-[400px]  p-2 rounded-lg    gap-3 items-center mt-6 xl:mt-0">
+          {/* <div className="relative"> */}
+            <div className="relative hidden xl:block md:block lg:block  md:w-[400px] ">
+              <div className=" border  md:items-center md:mr-4 md:mt-0 xl:mr-20 flex  w-[500px] md:w-full  p-2 rounded-lg    gap-3 items-center mt-6 xl:mt-0">
                 <TfiSearch/>
 
                 <input
@@ -251,9 +261,9 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
 
-        <div className=" xl:hidden md:hidden w-full  pl-2">
+        <div className="relative xl:hidden md:hidden w-full   pl-2">
           <div className="border  md:items-center md:mr-10 md:mt-0 xl:mr-20 flex w-full  p-2 rounded-lg    gap-3 items-center mt-6 xl:mt-0">
             <TfiSearch />
             <input
@@ -263,6 +273,7 @@ const MainNavbar = ({ logoSrc, isSideOpen, setSideOpen }) => {
               placeholder="Search"
               style={{ background: 0, outline: "0",color:'white' }}
               className="w-full searchInput"
+                // className="w-full px-4 py-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {loading && <IoReload className="animate-spin" />}
           </div>
@@ -370,7 +381,9 @@ That's why we're dedicated to providing high-quality, natural body creams that m
 
                       <li
                         className="mt-3 flex items-center cursor-pointer gap-1"
-                        onClick={handleSetLogOut}
+                        // onClick={handleSetLogOut}
+                      onClick={handleLogoutModal}
+
                       >
                         <AiOutlineLogout />
                         <Link>Logout</Link>
@@ -403,7 +416,7 @@ That's why we're dedicated to providing high-quality, natural body creams that m
                   <a href="https://wa.link/m4ypbh">
                     <li className="mt-3 flex gap-1 items-center cursor-pointer hover:bg-slate-400 hover:p-2 hover:text-white rounded-lg">
                       <IoLogoWhatsapp />
-                      0707789800099
+                      08164097238
                     </li>
                   </a>
 
@@ -423,7 +436,14 @@ That's why we're dedicated to providing high-quality, natural body creams that m
           </div>
         </div>
       </nav>
-
+      <DialogModel
+        isOpen={isDialogOpen}
+        onClose={handleSetLogOut}
+        title="Are you sure you want to log out?"
+        action="Logout"
+        loading={Modalloading}
+        bgColor="bg-red-500"
+      />
       {openLogin && <Login setOpenLogin={setOpenLogin} />}
       {openRegister && <Register setOpenRegister={setOpenRegister} />}
     </div>

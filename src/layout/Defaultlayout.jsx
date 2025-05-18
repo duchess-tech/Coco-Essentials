@@ -12,7 +12,7 @@ const Defaultlayout = ({children}) => {
     const [isSideOpen, setSideOpen] = useState(false)
   
     return (
-        <>
+        <div className="">
             <MainNavbar logoSrc="/cocoLogo1.png" setIsOpen={setIsOpen} isOpen={isOpen} Back={Back} isSideOpen={isSideOpen} setSideOpen={setSideOpen}
             />
              <SideMenu/>
@@ -20,7 +20,7 @@ const Defaultlayout = ({children}) => {
             {children}
             <Footer   logoSrc="/cocoLogo1.png"/>
 
-        </>
+        </div>
     )
 }
 

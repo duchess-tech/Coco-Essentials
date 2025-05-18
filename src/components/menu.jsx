@@ -89,7 +89,7 @@ const SideMenu = () => {
          <a href="https://wa.link/m4ypbh">
          <li className="mt-3 flex gap-1 items-center cursor-pointer hover:bg-slate-400 hover:p-2 hover:text-white rounded-lg">
          <IoLogoWhatsapp />
-         0707789800099
+         08164097238
           </li>
          </a>
 

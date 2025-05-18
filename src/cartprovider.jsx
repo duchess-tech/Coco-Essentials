@@ -3,6 +3,7 @@ import Cartcontext from "./cartcontext"
 import { useEffect, useState } from "react"
 import "react-toastify/dist/ReactToastify.css"
 import http from "./utils/adminHttp"
+// import { useNavigate } from "react-router-dom"
 
 const Cartprovider = ({ children }) => {
   const [openLogin, setOpenLogin] = useState(false)
@@ -72,6 +73,9 @@ const Cartprovider = ({ children }) => {
     setOpenRegister(true)
   }
 
+
+
+
   const Cartcont = {
     product: product,
     setProduct: setProduct,
@@ -108,7 +112,7 @@ const Cartprovider = ({ children }) => {
     Userloading,
     loadUser,
     wishlistLength,
-     setWishlistLength
+     setWishlistLength,
   }
 
   return (

@@ -1,5 +1,5 @@
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import NewArrivals from "./components/NewArrivals";
 import Banner from "./components/banner";
 import Banner2 from "./components/banner2";
@@ -11,12 +11,22 @@ import { generateSessionId } from "./utils/uniqueId";
 import Cartcontext from "./cartcontext";
 import { useSelector } from "react-redux";
 import { selectCart } from "./stores/features/cart/cartSlice";
-// import { ToastContainer } from "react-toastify";
-// import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from "react-router-dom";
+import DialogModel from "./components/dialog";
+
 
 function Home() {
  const {setCartLength,loadUser}=useContext(Cartcontext)
  const { totalQuantity} = useSelector(selectCart)
+ const location = useLocation();
+ const [isDialogOpen, setIsDialogOpen] = useState(false);
+ useEffect(() => {
+  if (location.state?.showSuccessDialog) {
+    setIsDialogOpen(true);
+  }
+  
+}, [location.state]);
+
 
  useEffect(() => {
   generateSessionId();
@@ -55,9 +65,16 @@ function Home() {
  </a>
 
     </div>
-    {/* <ToastContainer
-     position="top-right" autoClose={5000} hideProgressBar={false} /> */}
-
+   
+  <DialogModel
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        title="Login Successful"
+        message="Welcome! You are now logged in."
+        action="Exit"
+        bgColor="appColor"
+      />
+  
     </main>
 
   );

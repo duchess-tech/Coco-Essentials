@@ -16,8 +16,8 @@ const Footer = ({logoSrc}) => {
       });
     };
   return (
-      <footer className="static bottom-0  " >
-    <div className="flex flex-wrap-reverse md:p-5 md:flex-nowrap xl:flex-nowrap m-auto pb-10 mt-5 pl-4 xl:pl-32 xl:pr-32   text-[#f5f5f5] appColor   pt-10 xl:gap-28 gap-5  xl:justify-center"  >
+      <footer className="static " >
+    <div className="flex flex-wrap-reverse md:h-[300px] md:p-5 md:flex-nowrap xl:flex-nowrap m-auto pb-10 mt-5 pl-4 xl:pl-32 xl:pr-32   text-[#f5f5f5] appColor   pt-10 xl:gap-28 gap-5  xl:justify-center"  >
       
  <div className=" w-3/5">
        
@@ -49,7 +49,7 @@ const Footer = ({logoSrc}) => {
  <div  className=" w-3/5 ">
         <ul>
       <li  className=" mt-2 text-[12px] ">
-        &copy; 2024 Coco Essentials. <br></br> All right reserved
+        &copy; 2025 Coco Essentials. <br></br> All right reserved
       </li>
       <li  className="flex text-[12px] gap-2  xl:gap-6 mt-6 ">
         <Link to={"/return-policy"} onClick={scrollToTop}>
@@ -65,7 +65,6 @@ const Footer = ({logoSrc}) => {
       <li className="text-lg font-bold mb-2">About Us</li>
       <li className=" text-[11px]">
       At Coco Essentials, we believe that every individual deserves to feel confident and comfortable in their own skin. 
-
 That&apos;s why we&apos;re dedicated to providing high-quality, natural body creams that moisturize, soothe, and protect your skin.
                 </li>
       <li  className="hidden lg:flex gap-5 mt-10  xl:flex md:flex">

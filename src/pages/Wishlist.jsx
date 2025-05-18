@@ -92,13 +92,27 @@ useEffect(() => {
   
   return (
    <Defaultlayout  setIsOpen={setIsOpen} isOpen={isOpen} Back={handleBack}>
-     <div className='xl:mt-[70px] mt-36 md:mt-16 lg:mt-16  min-h-[350px]'>
-      <h2 className='text-center text-xl w-full z-30 fixed bg-slate-100 p-2'>
+     <div className='min-h-screen'>
+      <div className='xl:mt-[90px] mt-44  md:mt-24 lg:mt-24'>
       { wishlist.length <=0 &&
-      <span >No </span>
+      <h1 className='text-center text-xl w-full z-30 fixed top-24 bg-slate-100 p-3' >No  { wishlist.length ==1? "Wishlist":"Wishlists"} </h1>
     }
-       { wishlist.length ==1? "Wishlist":"Wishlists"}</h2>
-      
+
+      </div>
+      { wishlist.length <=0 &&
+<div className='flex justify-center mt-52'>
+  
+<div className='w-1/2 h-[200px] border-2 rounded-lg  flex justify-center items-center'>
+<h1 className='text-2xl'>Your Wishlist is empty</h1>
+</div>
+</div>
+
+      }
+
+
+
+
+
 
      { wishlist?.length >=1 &&
 
@@ -129,11 +143,16 @@ useEffect(() => {
   )} </button>
   <HoverDescription description={item.productId?.description}/>
    </div>
+   
   </div>
 
-))}
+))}   
+  
 </div>
-      
+
+
+
+     
 <div className='flex justify-end mt-12 p-3'>
 <button  className='bg-[#890104] w-[100px] text-white text-[13px] rounded-sm p-2'  disabled={loadingEmptyWishlist} onClick={HandleEmptyAllwishlist}> {loadingEmptyWishlist ? (
     <FontAwesomeIcon className="animate-spin" icon={faSpinner} />
@@ -146,9 +165,9 @@ useEffect(() => {
      }
    
     </div>
+   
   
-    {/* <span className='text-[12px]'>{item.description}</span> */}
-
+   
     <ToastContainer
             position="bottom-right"
             autoClose={5000}

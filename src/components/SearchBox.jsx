@@ -30,7 +30,8 @@ const SearchBox = ({ showProducts, searchedProducts, handleClickBack }) => {
       {showProducts && searchedProducts.length > 0 && (
         <motion.div
           ref={productRef}
-          className="absolute searchcase xl:top-[92px] appColor2 xl:right-[500px] xl:w-[418px] xl:max-h-[300px]   pb-10 border-b-black border-3 max-h-[350px]  border-2  md:top-16  w-[500px] sm:min-w-[500px]  sm:max-w-[900px]    overflow-y-auto"
+          className="absolute w-full mt-1 bg-white border border-gray-300 rounded shadow-md z-10 animate-fade-in overflow-y-auto pb-10 xl:w-[418p]  max-h-[450px]  xl:mt-[500px] md:mt-[500px] "
+          // className="absolute searchcase xl:top-[92px] appColor2 xl:right-[500px] xl:w-[418px] xl:max-h-[300px]   pb-10 border-b-black border-3 max-h-[350px]  border-2  md:top-16  w-[500px] sm:min-w-[500px]  sm:max-w-[900px]    overflow-y-auto"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
