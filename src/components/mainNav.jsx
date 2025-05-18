@@ -438,7 +438,8 @@ That's why we're dedicated to providing high-quality, natural body creams that m
       </nav>
       <DialogModel
         isOpen={isDialogOpen}
-        onClose={handleSetLogOut}
+        onClose={() => setIsDialogOpen(false)} 
+        logout={handleSetLogOut}
         title="Are you sure you want to log out?"
         action="Logout"
         loading={Modalloading}

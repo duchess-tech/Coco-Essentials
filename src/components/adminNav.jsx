@@ -35,7 +35,7 @@ console.error(error)
         
       }
   return (
-   <div className="flex 2xl:flex xl:flex md:fl-row lg:flex-row fixed sm:flex-col  top-0 bg-white border-b-2 z-50 w-full items-center p-2 justify-between">
+   <div className="flex flex-wrap justify-center  sm:flex xl:flex md:fl-row lg:flex-row fixed sm:flex-col  top-0 bg-white border-b-2 z-50 w-full items-center p-2 sm:justify-between">
 <Link to={"/adminHome"}>
 <div className=" w-32 overflow-hidden ">
   <img src="/cocoLogo1.png" alt="" className=""/>
@@ -44,7 +44,7 @@ console.error(error)
 </Link>
 
 
-     <div className="flex p-3 text-[12px] gap-3 ">
+     <div className="flex  p-3 text-[12px] gap-3 ">
  <Link to={"/AddProduct"}>
  <button className="p-1 border-black border rounded-sm">
             Add products

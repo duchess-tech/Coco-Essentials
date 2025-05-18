@@ -65,13 +65,14 @@ const handleAddToCart = (product) => {
 }
   return (
    < Defaultlayout>
-    <div className="mt-40 h-full p-3 xl:p-0 xl:flex xl:w-3/4  m-auto mb-16 justify-center xl:mr-32 xl:gap-10  ">
-<div className=" w-1/3 rounded-2xl border overflow-hidden shadow-lg flex justify-center items-center ">
-<div className="">
-<img src={productDetail?.image} alt={productDetail?.name} className="w-full h-full"  /></div>
+   <div className=" md:min-h-screen flex flex-col">
+   <div className="mt-52 p-12 sm:mt-12  lg:mt-44 md:flex md:justify-center md:p-12 xl:p-24 xl:mt-10 md:mt-44  sm:p-40 gap-10 md:items-center ">
+<div className="rounded-2xl border overflow-hidden shadow-lg flex justify-center items-center ">
+<div className="p-4 ">
+<img src={productDetail?.image} alt={productDetail?.name} className="w-full h-full "  /></div>
 
 </div>
-<div className="p-2  ">
+<div className="p-2 mt-4 ">
 <div className="xl:p-3 bg-[#EEDCF9] text-black xl:w-full p-1  ">
 <h2 className="xl:text-3xl">{productDetail?.name}</h2>
 </div>
@@ -129,7 +130,7 @@ Add to cart
 
     </div>
    
-
+    </div>
     </Defaultlayout>
   )
 }
