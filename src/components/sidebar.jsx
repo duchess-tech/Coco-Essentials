@@ -9,14 +9,13 @@ import { CiLogin } from 'react-icons/ci';
 import { FaFacebook, FaInstagramSquare, FaRegRegistered } from 'react-icons/fa';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-
+import DialogModel from './dialog';
 const Sidebar = ({ isSideOpen, setSideOpen }) => {
     const { handleLogin, handleRegister,setisadmin,setLogin,login,isadmin} = useContext(Cartcontext);
     const [constactIsVisible, setConstactIsVisible] = useState(false);
     const [aboutIsVisible, setAboutIsVisible] = useState(false);
-
-
-
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [Modalloading, setModalLoading] = useState(false);
     
     const handleToggleContact= () => {
       setConstactIsVisible(!constactIsVisible);
@@ -40,8 +39,12 @@ const Sidebar = ({ isSideOpen, setSideOpen }) => {
    const back=()=>{
    setSideOpen(false)
    }
-
+  
+const handleLogoutModal = () => {
+    setIsDialogOpen(true);
+};
    const handleSetLogOut=()=>{
+    setModalLoading(true)
     localStorage.removeItem("Login")
     localStorage.removeItem("Admin")
     localStorage.removeItem("token")
@@ -49,6 +52,9 @@ const Sidebar = ({ isSideOpen, setSideOpen }) => {
     setisadmin(false);
     setLogin(false)
     location.reload("/")
+    setTimeout(() => {
+      setModalLoading(false);
+    }, 2000);
   }
 
   const handleNavigation = (path) => {
@@ -56,6 +62,7 @@ const Sidebar = ({ isSideOpen, setSideOpen }) => {
   };
 
   return (
+    <div>
     <div className="relative h-full xl:hidden sm:hidden lg:block hidden md:block  2xl:hidden">
       <div
         className=
@@ -172,7 +179,7 @@ That&apos;s why we&apos;re dedicated to providing high-quality, natural body cre
               </li>}
   
                 <li
-                  onClick={handleSetLogOut}
+                  onClick={handleLogoutModal}
                   className="flex items-center gap-1 mb-4 cursor-pointer"
                 >
                   {" "}
@@ -198,7 +205,17 @@ Switch to Admin
           </div>
      
       </div> 
-
+   
+    </div>
+    <DialogModel
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)} 
+        logout={handleSetLogOut}
+        title="Are you sure you want to log out?"
+        action="Logout"
+        loading={Modalloading}
+        bgColor="bg-red-500"
+      />
     </div>
   )
 

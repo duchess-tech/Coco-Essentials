@@ -3,18 +3,23 @@ import Cartcontext from "../cartcontext";
 import { AiOutlineLogin } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { IoReloadCircleSharp } from "react-icons/io5";
+import DialogModel from "./dialog";
 
 const AdminNav = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [loading,setLoading]=useState(false)
+
     const {setLogin,
         setisadmin,
         loadUser
       } = useContext(Cartcontext);
-const [loading,setLoading]=useState(false)
 
 useEffect(()=>{
   loadUser(); 
 },[])
-
+const handleLogoutModal=()=>{
+  setIsDialogOpen(true);
+}
 
 const navigate=useNavigate()
       const handleSetLogOut=()=>{
@@ -59,14 +64,21 @@ console.error(error)
  <button className="p-1 border-black border rounded-sm">
           Switch to User
           </button> </Link>
-<button onClick={handleSetLogOut}>
+<button  onClick={handleLogoutModal}>
             
            {loading? <IoReloadCircleSharp className="animate-spin"/>:<span  className="flex items-center"><AiOutlineLogin/>Logout</span>}
           </button>
-
-
-      
     </div>
+
+     <DialogModel
+            isOpen={isDialogOpen}
+            onClose={() => setIsDialogOpen(false)} 
+            logout={handleSetLogOut}
+            title="Are you sure you want to log out?"
+            action="Logout"
+            loading={loading}
+            bgColor="bg-red-500"
+          />
    </div>
   )
 }

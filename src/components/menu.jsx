@@ -10,11 +10,14 @@ import { Link} from "react-router-dom"
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa"
 import { IoLogoWhatsapp, IoMail } from "react-icons/io5"
+import DialogModel from "./dialog"
 
 const SideMenu = () => {
   const { isOpen, Back, handleLogin, handleRegister, login ,isadmin,setisadmin,setLogin} =useContext(Cartcontext)
     const [constactIsVisible, setConstactIsVisible] = useState(false);
     const [aboutIsVisible, setAboutIsVisible] = useState(false);
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [Modalloading, setModalLoading] = useState(false);
 
 
  
@@ -37,7 +40,12 @@ const SideMenu = () => {
     Back()
   }
   
+  const handleLogoutModal=()=>{
+    setIsDialogOpen(true);
+    Back()
+  }
   const handleSetLogOut=()=>{
+    setModalLoading(true)
     localStorage.removeItem("Login")
     localStorage.removeItem("Admin")
     localStorage.removeItem("token")
@@ -45,6 +53,9 @@ const SideMenu = () => {
     setisadmin(false)
     setLogin(false)
     location.reload("/")
+    setTimeout(() => {
+      setModalLoading(false);
+    }, 2000);
   }
 
   const handleNavigation = (path) => {
@@ -169,7 +180,7 @@ That&apos;s why we&apos;re dedicated to providing high-quality, natural body cre
 
              
               <li
-                onClick={handleSetLogOut}
+                onClick={handleLogoutModal}
                 className="flex items-center gap-1 mb-4 cursor-pointer "
               >
                 <span>
@@ -194,6 +205,17 @@ Switch to Admin
          
         </div>
       </div>
+
+
+       <DialogModel
+              isOpen={isDialogOpen}
+              onClose={() => setIsDialogOpen(false)} 
+              logout={handleSetLogOut}
+              title="Are you sure you want to log out?"
+              action="Logout"
+              loading={Modalloading}
+              bgColor="bg-red-500"
+            />
     </div>
   )
 }
