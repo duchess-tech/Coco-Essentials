@@ -1,6 +1,7 @@
 import  { useEffect, useState } from 'react';
 import httpAuth from '../utils/https';
 import { Link } from 'react-router-dom';
+import { FaEdit } from 'react-icons/fa';
 
 const ProductTable = () => {
   const [products, setProducts] = useState([]);
@@ -41,6 +42,7 @@ const ProductTable = () => {
             <th className="py-2 px-4 border-b border">Product Name</th>
             <th className="py-2 px-4 border-b border">Product ID</th>
             <th className="py-2 px-4 border-b">No. of Products Available</th>
+         
           </tr>
         </thead>
         <tbody>
@@ -53,6 +55,9 @@ const ProductTable = () => {
                 <td className="py-2 px-4 border-b border">{product?.name}</td>
                 <td className="py-2 px-4 border-b border">{product?._id}</td>
                 <td className={`py-2 px-4 border-b ${product.noofitem <= 0 ? 'text-red-500' : ''}`}>{formatNumber(product?.noofitem)}</td>
+                <td><button >
+  <FaEdit className="text-blue-500 hover:text-blue-700" />
+</button></td>
               </tr>
             ))
           ) : (

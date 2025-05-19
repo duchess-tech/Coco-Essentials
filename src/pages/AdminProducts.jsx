@@ -77,8 +77,6 @@ function AdminProducts() {
 
   //edit product
  const handleEdit=async(id)=>{
- 
-
     try {
         const response = await httpAuth.get(`/api/products/edit/${id}`);
         const data = await response.data.product;
